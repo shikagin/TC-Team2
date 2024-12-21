@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { FaUsers, FaRegChartBar, FaUser, FaPowerOff } from 'react-icons/fa';
+import { FaUsers, FaRegChartBar, FaUser, FaPowerOff, FaTasks } from 'react-icons/fa';
+import { BiLogIn } from "react-icons/bi";
+import { FiUserPlus } from "react-icons/fi";
 import Logo from "../assets/Logo.svg";
 
 // SideBarButton Component
@@ -31,13 +33,13 @@ const SideBar = ({ role }) => {
     admin: [
       { path: '/employees', icon: <FaUsers />, label: 'Employees' },
       { path: '/HRs', icon: <FaUsers />, label: 'HRs' },
-      { path: '/check', icon: <FaRegChartBar />, label: 'Check' },
-      { path: '/account-creation', icon: <FaRegChartBar />, label: 'HRs' },
+      { path: '/check', icon: <BiLogIn />, label: 'Check' },
+      { path: '/account-creation', icon: <FiUserPlus />, label: 'Create Account' },
     ],
     RH: [
       { path: '/dashboard', icon: <FaRegChartBar />, label: 'Dashboard' },
       { path: '/employee-list', icon: <FaUsers />, label: 'Employee list' },
-      { path: '/task-list', icon: <FaUsers />, label: 'Tasks list' },
+      { path: '/task-list', icon: <FaTasks />, label: 'Tasks list' },
 
     ],
     employee: [
