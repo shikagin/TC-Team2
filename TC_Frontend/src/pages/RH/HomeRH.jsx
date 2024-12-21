@@ -2,7 +2,7 @@ import React from 'react'
 
 function HomeRH() {
   return (
-    <div>Home</div>
+    <div className='bg-[#F5F5F5] h-screen'>Home</div>
   )
 }
 
