@@ -16,22 +16,24 @@ function Check() {
     // Simulate backend validation logic
     const simulatedResult = action === "checkIn" ? "Validated" : "Non-Validated"; // Mock validation
     setResult(simulatedResult);
+
+    if (simulatedResult === "Validated") {
+      sendImage(imageSrc);
+    }
   };
 
   // Function to send the image to the backend
-  const sendImage = async () => {
-    if (imageUrl) {
-      setLoading(true);
-      try {
-        const response = await axios.post("/your-backend-endpoint", {
-          image: imageUrl,
-        });
-        console.log("Image sent successfully:", response);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error sending the image:", error);
-        setLoading(false);
-      }
+  const sendImage = async (image) => {
+    setLoading(true);
+    try {
+      const response = await axios.post("/your-backend-endpoint", {
+        image,
+      });
+      console.log("Image sent successfully:", response);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error sending the image:", error);
+      setLoading(false);
     }
   };
 
@@ -100,15 +102,6 @@ function Check() {
             >
               {result === "Validated" ? "Image Validated" : "Image Non Valid"}
             </div>
-          )}
-
-          {result === "Validated" && (
-            <button
-              onClick={sendImage}
-              className="mt-4 px-6 py-3 bg-green-600 text-white rounded-lg hover:-translate-y-2 transition-transform duration-300 ease-in-out"
-            >
-              Send Image
-            </button>
           )}
 
           {result === "Non-Validated" && (
