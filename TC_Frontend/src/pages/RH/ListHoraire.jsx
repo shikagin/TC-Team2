@@ -1,33 +1,33 @@
 import React from 'react'
 
 function ListHoraire() {
-    const fetchStates= async ()=>{
+//     const fetchStates= async ()=>{
 
-        try{
+//         try{
 
-                const response = await fetch("")
-                const data = await response.json()
-                console.log("Fetched Stats:", data)
-                return data
+//                 const response = await fetch("")
+//                 const data = await response.json()
+//                 console.log("Fetched Stats:", data)
+//                 return data
 
-        }
-        catch (error)
-        {
-                console.error("err fetching states ",error)
-                return null
+//         }
+//         catch (error)
+//         {
+//                 console.error("err fetching states ",error)
+//                 return null
 
-        }
-    }
-    const handleMissingData = (data) => {
-        if (!data || data.length === 0) {
-          console.warn("No data available.")
-          return []
-        }
-        return data
-    }
-  return (
-    <div>ListHoraire</div>
-  )
+//         }
+//     }
+//     const handleMissingData = (data) => {
+//         if (!data || data.length === 0) {
+//           console.warn("No data available.")
+//           return []
+//         }
+//         return data
+//     }
+//   return (
+//     <div>ListHoraire</div>
+//   )
 }
 
 export default ListHoraire
