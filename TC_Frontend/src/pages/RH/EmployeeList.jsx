@@ -1,8 +1,20 @@
 import React from 'react'
-
+import Popup from "../../components/Popup";
 import Profilpic from '../../assets/Group.svg';
+import{ useState } from "react";
+import CreateAccount from '../../components/CreateAccount';
 
 function ListEmploye() {
+
+
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+    const togglePopup = () => {
+
+      setIsPopupVisible(!isPopupVisible);
+
+    };
+
     const fetchStates= async ()=>{
 
         try{
@@ -21,22 +33,62 @@ function ListEmploye() {
         }
     }
     
-   const patient = [
-    { name : 'bsj nadine',
+   const employee = [
+    { 
+      firstName : 'bsj ',
+      lastName   : 'nadine',
+      phoneNumber:'036789900000',
+      email      :'ssss@xxx.com',
+      role       :'RH'
     },
-    { name : 'bsj nadine',
+    { 
+      firstName : 'bsj ',
+      lastName   : 'nadine',
+      phoneNumber:'036789900000',
+      email      :'ssss@xxx.com',
+      role       :'RH'
     },
-    { name : 'bsj nadine',
+    { 
+      firstName : 'bsj ',
+      lastName   : 'nadine',
+      phoneNumber:'036789900000',
+      email      :'ssss@xxx.com',
+      role       :'RH'
     },
-    { name : 'bsj nadine',
+    { 
+      firstName : 'bsj ',
+      lastName   : 'nadine',
+      phoneNumber:'036789900000',
+      email      :'ssss@xxx.com',
+      role       :'RH'
     },
-    { name : 'bsj nadine',
+    { 
+      firstName : 'bsj ',
+      lastName   : 'nadine',
+      phoneNumber:'036789900000',
+      email      :'ssss@xxx.com',
+      role       :'RH'
     },
-    { name : 'bsj nadine',
+    { 
+      firstName : 'bsj ',
+      lastName   : 'nadine',
+      phoneNumber:'036789900000',
+      email      :'ssss@xxx.com',
+      role       :'RH'
     },
-    { name : 'bsj nadine',
+    { 
+      firstName : 'bsj ',
+      lastName   : 'nadine',
+      phoneNumber:'036789900000',
+      email      :'ssss@xxx.com',
+      role       :'RH'
     },
-    { name : 'bsj nadine',
+    { 
+      firstName : 'bsj ',
+      lastName   : 'nadine',
+      phoneNumber:'036789900000',
+      email      :'ssss@xxx.com',
+      role       :'RH'
     },
    ]
 
@@ -45,19 +97,33 @@ function ListEmploye() {
         <div className='bg-white rounded-2xl h-full p-10 flex flex-col w-full'>
            <p className='font-bold text-2xl mb-2'> Employee list</p>
            <div className='overflow-y-auto h-[calc(100%-4rem)]'>
-           {patient.map((item) => {
+           {employee.map((item) => {
               return (
-                 <div className='flex flex-row justify-between mx-4 my-5 rounded-2xl bg-color2 py-2 px-4'>
-                  <div className='flex flex-row justify-between'> 
+                <div key={item.id} className='flex flex-row justify-between mx-4 my-5 rounded-2xl bg-color2 py-2 px-4'>                  <div className='flex flex-row justify-between'> 
                      <img src={Profilpic} alt="pic" className='w-7 h-7 object-contain my-2 pr-2'/>
                      <p className='py-2'>{item.name}</p>
                   </div>
-                  <div className='flex flex-row justify-between w-2/3'>
-                    <button className='px-4 py-1 rounded-xl bg-color1 text-white'>informations</button>
+
+                  <div className='flex flex-row justify-between w-2/3'>            
+                    <button  className='px-4 py-1 rounded-xl bg-color1 text-white'  onClick={togglePopup}  >informations</button>
                     <button  className='px-4 py-1 rounded-xl bg-color1 text-white'>hours</button>
                     <button  className='px-4 py-1 rounded-xl bg-color1 text-white'>statistics</button>
                     <button  className='px-4 py-1 rounded-xl bg-color6 text-white'>leave request</button>
+                 
+                    {isPopupVisible && (
+                    <Popup
+
+                      isVisible={isPopupVisible}
+                      onClose={() => togglePopup(null)} // Close popup
+                      content={item}
+         
+                    />
+                    )} 
+
+
                   </div>
+
+                  
                    
                 </div>
               );
