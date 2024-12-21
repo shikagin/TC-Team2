@@ -45,7 +45,7 @@ export default function App() {
     <Router>
       <Routes>
         {/* Login page without sidebar */}
-        <Route path="/login" element={<LogIn />} />
+        <Route path="/" element={<LogIn />} />
 
         {/* Admin Routes */}
         <Route
