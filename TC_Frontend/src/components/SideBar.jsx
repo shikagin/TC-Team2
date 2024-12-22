@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { FaUsers, FaRegChartBar, FaUser, FaPowerOff, FaTasks } from 'react-icons/fa';
 import { BiLogIn } from "react-icons/bi";
 import { FiUserPlus } from "react-icons/fi";
 import Logo from "../assets/Logo.svg";
 
 // SideBarButton Component
-const SideBarButton = ({ icon, label, handleNavigation }) => {
+const SideBarButton = ({ icon, label, path, isActive, handleNavigation }) => {
   return (
     <li className="flex items-center cursor-pointer w-full">
       <button
-        onClick={handleNavigation}
-        className="w-60 flex items-center gap-2 bg-white text-[#00ACE8] hover:bg-[#00ACE8] hover:text-white active:bg-[#00ACE8] active:text-white rounded-md p-2 shadow-sm"
+        onClick={() => handleNavigation(path)}
+        className={`w-60 flex items-center gap-2 ${isActive ? 'bg-[#00ACE8] text-white' : 'bg-white text-[#00ACE8]'} 
+        hover:bg-[#00ACE8] hover:text-white active:bg-[#00ACE8] active:text-white rounded-md p-2 shadow-sm`}
       >
         <span className="text-xl">{icon}</span> {label}
       </button>
@@ -22,12 +23,12 @@ const SideBarButton = ({ icon, label, handleNavigation }) => {
 const SideBar = ({ role }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation(); // To track the current route
 
   const handleNavigation = (path) => {
     navigate(path);
   };
 
-  
   // Unified object containing links for all roles
   const roleLinks = {
     admin: [
@@ -40,7 +41,6 @@ const SideBar = ({ role }) => {
       { path: '/dashboard', icon: <FaRegChartBar />, label: 'Dashboard' },
       { path: '/employee-list', icon: <FaUsers />, label: 'Employee list' },
       { path: '/task-list', icon: <FaTasks />, label: 'Tasks list' },
-
     ],
     employee: [
       { path: 'employee-dashboard', icon: <FaUser />, label: 'Dashboard' },
@@ -67,7 +67,9 @@ const SideBar = ({ role }) => {
             key={index}
             icon={link.icon}
             label={link.label}
-            handleNavigation={() => navigate(`/${role}${link.path}`)}
+            path={`/${role}${link.path}`} // Add role prefix to path
+            isActive={location.pathname === `/${role}${link.path}`} // Check if the current path matches
+            handleNavigation={handleNavigation}
           />
         ))}
       </ul>
