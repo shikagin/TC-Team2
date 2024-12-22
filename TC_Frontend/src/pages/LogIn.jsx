@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import logo from '../assets/Layer2.svg'
+import logo from '../assets/logo.svg'
 import pic1 from '../assets/Group 34214(5).svg'
 
 const LogIn=()=> {
@@ -72,7 +72,7 @@ const LogIn=()=> {
                 Email
               </label>
               <input 
-                className="bg-color4 border-b-[0.5vh] border-color1 m-[2vh] user-select-none" 
+                className="bg-color4 border-b-[0.5vh] border-[#16C098] m-[2vh] user-select-none" 
                 type="text" 
                 id="email" 
                 name="email" 
@@ -92,7 +92,7 @@ const LogIn=()=> {
                 Password
               </label>
               <input 
-                className="bg-color4 border-b-[0.5vh] mb-[1vw] border-color1 m-[2vh] user-select-none" 
+                className="bg-color4 border-b-[0.5vh] mb-[1vw] border-[#16C098] m-[2vh] user-select-none" 
                 type="password" 
                 id="password" 
                 name="password" 
@@ -108,7 +108,7 @@ const LogIn=()=> {
             <div>
               <button 
                 type="submit" 
-                className="ml-[3vw] font-bold text-[1.5em] font-Roboto bg-color1 text-color4 rounded-xl w-[30vw] h-[8vh]"
+                className="ml-[3vw] font-bold text-[1.5em] font-Roboto bg-[#16C098] text-color4 rounded-xl w-[30vw] h-[8vh]"
               >
                 Login
               </button>

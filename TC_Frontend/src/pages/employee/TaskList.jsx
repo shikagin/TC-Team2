@@ -135,7 +135,7 @@ function TaskList() {
                     <select
 
                       
-                      value={task.status}
+                      value={null}
                       onChange={(e) => handleStatusChange(task.id, e.target.value)}
                       className="p-2 border border-gray-300 rounded-lg text-[1rem] bg-white shadow-sm"
                     >

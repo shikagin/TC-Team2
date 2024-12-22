@@ -4,7 +4,7 @@ import { FaUsers, FaHome, FaRegCalendarCheck, FaRegChartBar, FaUser, FaPowerOff,
 import { MdOutlinePaid } from 'react-icons/md';
 import { BiLogIn } from "react-icons/bi";
 import { FiUserPlus } from "react-icons/fi";
-import Logo from "../assets/Logo.svg";
+import Logo from "../assets/logo.svg";
 
 // SideBarButton Component
 const SideBarButton = ({ icon, label, path, isActive, handleNavigation }) => {
@@ -12,8 +12,8 @@ const SideBarButton = ({ icon, label, path, isActive, handleNavigation }) => {
     <li className="flex items-center cursor-pointer w-full">
       <button
         onClick={() => handleNavigation(path)}
-        className={`w-60 flex items-center gap-2 ${isActive ? 'bg-[#00ACE8] text-white' : 'bg-white text-[#00ACE8]'} 
-        hover:bg-[#00ACE8] hover:text-white active:bg-[#00ACE8] active:text-white rounded-md p-2 shadow-sm`}
+        className={`w-60 flex items-center gap-2 ${isActive ? 'bg-[#B7EBDF] text-#191919' : 'bg-white text-[#191919]'} 
+        hover:bg-[#4bb9a0] hover:text-#191919 active:bg-[#B7EBDF] active:text-#191919 rounded-md p-2 shadow-sm`}
       >
         <span className="text-xl">{icon}</span> {label}
       </button>
@@ -80,7 +80,7 @@ const SideBar = ({ role }) => {
       <div className="w-full flex justify-center">
         <button
           onClick={() => handleNavigation('/')}
-          className="justify-center  w-52 flex items-center gap-2 bg-[#FF4D4F] text-white hover:bg-red-600 rounded-md p-2 shadow-sm"
+          className="justify-center  w-52 flex items-center gap-2 bg-color3 text- hover:bg-slate-500 rounded-md p-2 shadow-sm"
         >
           <FaPowerOff size={12} /> Log out
         </button>
