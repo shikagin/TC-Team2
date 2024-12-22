@@ -57,7 +57,7 @@ const SideBar = ({ role }) => {
     <nav className="card fixed top-0 left-0 h-screen w-[240px] bg-white p-5 shadow-md flex flex-col justify-between z-20">
       {/* Logo Link */}
       <div className="flex justify-center mb-4"> {/* Center the logo */}
-        <Link to="/" className="flex items-center space-x-2">
+        <Link to="" className="flex items-center space-x-2">
           <img className="w-16 pb-6 object-contain" src={Logo} alt="Logo" />
         </Link>
       </div>
