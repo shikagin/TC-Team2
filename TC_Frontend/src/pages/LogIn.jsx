@@ -17,7 +17,6 @@ const LogIn=()=> {
     const validateForm = () => {
     const newErrors = {};
 
-   
 
     if (!formData.email.trim()) {
       newErrors.email = "Email is required.";
@@ -114,6 +113,7 @@ const LogIn=()=> {
                 Login
               </button>
             </div>
+            
           </form>
         </div>
     
