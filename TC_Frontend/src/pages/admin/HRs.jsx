@@ -7,16 +7,33 @@ import { FiEdit } from 'react-icons/fi';
 import { MdDelete } from 'react-icons/md';
 
 function HRs() {
+
+
+  const [employeeData, setemployeeData] = useState({
+  
+            firstName : '',
+            lastName   : '',
+            phoneNumber:'',
+            email      :'',
+            role       :'',
+  });
+
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isModifyPopupVisible, setIsModifyPopupVisible] = useState(false);
 
-  const togglePopup = () => {
-    setIsPopupVisible(!isPopupVisible);
+  const togglePopup = (firstName, lastName, phoneNumber, email, role) => {
+
+      setemployeeData({ firstName, lastName, phoneNumber, email, role });
+      setIsPopupVisible(!isPopupVisible);
   };
 
-  const toggleModifyPopup = () => {
+
+  const toggleModifyPopup = (firstName, lastName, phoneNumber, email, role) => {
+
+    setemployeeData({ firstName, lastName, phoneNumber, email, role });
     setIsModifyPopupVisible(!isModifyPopupVisible);
   };
+
 
   const handleSave = (updatedEmployee) => {
     console.log("Updated Employee:", updatedEmployee);
@@ -31,7 +48,7 @@ function HRs() {
     {
       firstName: 'bsj ',
       lastName: 'nadine',
-      phoneNumber: '036789900000',
+      phoneNumber: '036hxxxxxxxxxxxxx789900000',
       email: 'ssss@xxx.com',
       role: 'RH'
     },
@@ -98,30 +115,34 @@ function HRs() {
                 <p className='py-2'>{item.firstName} {item.lastName}</p>
               </div>
               <div className='flex flex-row space-x-4 place-items-center'>
+
                 <AiOutlineInfoCircle
                   className='text-black text-2xl cursor-pointer'
-                  onClick={togglePopup}
+                  onClick={() => togglePopup(item.firstName, item.lastName, item.phoneNumber, item.email, item.role)}
                 />
                 <FiEdit
                   className='text-black text-2xl cursor-pointer'
-                  onClick={toggleModifyPopup}
+                  onClick={() => toggleModifyPopup(item.firstName, item.lastName, item.phoneNumber, item.email, item.role)}
                 />
                 <MdDelete
                   className='text-color6 text-2xl cursor-pointer'
                   onClick={deleteHR}
                 />
                 {isPopupVisible && (
-                  <Popup
-                    isVisible={isPopupVisible}
-                    onClose={() => setIsPopupVisible(false)}
-                    content={item}
-                  />
-                )}
+                    <Popup
+
+                      isVisible={isPopupVisible}
+                      onClose={() => togglePopup(null)} // Close popup
+                      content={employeeData}
+         
+                    />
+                    )} 
+            
                 {isModifyPopupVisible && (
                   <ModifyPopup
                     isVisible={isModifyPopupVisible}
                     onClose={toggleModifyPopup}
-                    content={item}
+                    content={employeeData}
                     onSave={handleSave}
                   />
                 )}

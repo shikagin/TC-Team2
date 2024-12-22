@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { FiUser } from 'react-icons/fi'; // Ensure this import is correct
 
 const Add = ({ isVisible, onClose }) => {
+
+  
   const [formData, setFormData] = useState({
     FirstName: "",
     LastName: "",
