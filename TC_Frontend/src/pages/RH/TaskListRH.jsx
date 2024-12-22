@@ -129,7 +129,7 @@ const TaskListRH = () => {
 
                 <div className="flex flex-row">
 
-                  <p className="mr-16 font-inter font-medium">{task.title} </p>
+                  <p className="mr-16 mt-2 font-inter font-medium">{task.title} </p>
 
                   <button
                     className="ml-24 flex items-center text-gray-700 bg-transparent hover:bg-gray-100 rounded-lg" onClick={() => toggleDescription(task.title, task.description)}  
@@ -168,16 +168,16 @@ const TaskListRH = () => {
 
                 </div>
   
-                <p className="pr-16">Deadline</p>
+                <p className="mt-2 pr-8 pl-4 ml-6">Deadline</p>
                 <select 
                   value={task.status}
                  // onChange={(e) => handleStatusChange(task.id, e.target.value)}
                   className="mr-8 p-2 border border-gray-300 rounded-lg"
                 >
-                  {/* <option value="Not Started">Not Started</option>
+                   <option value="Not Started">Not Started</option>
                   <option value="In Progress">In Progress</option>
                   <option value="Feedback">Feedback</option>
-                  <option value="Finished">Finished</option> */}
+                  <option value="Finished">Finished</option> 
                 </select>
 
               </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { IoIosRadioButtonOn } from "react-icons/io";
 
 
-const Attendence = ({ isVisible, onClose, content }) => {
+const AttendencePop = ({ isVisible, onClose, content }) => {
 
   if (!isVisible) return null;
   const {  WorkingDays,
@@ -70,4 +70,4 @@ const Attendence = ({ isVisible, onClose, content }) => {
   );
 };
 
-export default Attendence;
+export default AttendencePop;
