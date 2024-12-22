@@ -7,6 +7,7 @@ const ModifyPopup = ({ isVisible, onClose, content, onSave }) => {
   if (!isVisible) return null;
 
   const [employeeData, setEmployeeData] = useState(content);
+
   const [image, setImage] = useState(null);
 
   const handleChange = (e) => {

@@ -29,6 +29,7 @@ const TaskListRH = () => {
       
         };
 
+
   const [isAddTaskVisible, setIsAddTaskVisible] = useState(false);
       
         const toggleAddTask = () => {
@@ -170,13 +171,13 @@ const TaskListRH = () => {
                 <p className="pr-16">Deadline</p>
                 <select 
                   value={task.status}
-                  onChange={(e) => handleStatusChange(task.id, e.target.value)}
+                 // onChange={(e) => handleStatusChange(task.id, e.target.value)}
                   className="mr-8 p-2 border border-gray-300 rounded-lg"
                 >
-                  <option value="Not Started">Not Started</option>
+                  {/* <option value="Not Started">Not Started</option>
                   <option value="In Progress">In Progress</option>
                   <option value="Feedback">Feedback</option>
-                  <option value="Finished">Finished</option>
+                  <option value="Finished">Finished</option> */}
                 </select>
 
               </div>
