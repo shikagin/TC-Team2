@@ -11,7 +11,6 @@ import AccountCreation from './pages/admin/AccountCreation';
 
 // Employee Pages
 import HomeEmployee from './pages/employee/HomeEmployee';
-import LeaveRequests from './pages/employee/LeaveRequests';
 import LeaveList from './pages/employee/LeaveList';
 import TaskList from './pages/employee/TaskList';
 import Attendance from './pages/employee/Attendance';
@@ -68,11 +67,9 @@ export default function App() {
           element={
             <MainLayout role="employee">
               <Routes>
-                <Route path="/home" element={<HomeEmployee />} />
-                <Route path="/task-list" element={<TaskList />} />
-                <Route path="/Attendance" element={<Attendance />} />
-                <Route path="/leave-list" element={<LeaveList />} />
-                <Route path="/leave-requests" element={<LeaveRequests />} />
+                <Route path="/tasklist" element={<TaskList />} />
+                <Route path="/attendance" element={<Attendance />} />
+                <Route path="/leavelist" element={<LeaveList />} />
               </Routes>
             </MainLayout>
           }

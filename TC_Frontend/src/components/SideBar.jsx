@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
-import { FaUsers, FaRegChartBar, FaUser, FaPowerOff, FaTasks } from 'react-icons/fa';
+import { FaUsers, FaHome, FaRegCalendarCheck, FaRegChartBar, FaUser, FaPowerOff, FaTasks } from 'react-icons/fa';
+import { MdOutlinePaid } from 'react-icons/md';
 import { BiLogIn } from "react-icons/bi";
 import { FiUserPlus } from "react-icons/fi";
 import Logo from "../assets/Logo.svg";
@@ -43,8 +44,9 @@ const SideBar = ({ role }) => {
       { path: '/task-list', icon: <FaTasks />, label: 'Tasks list' },
     ],
     employee: [
-      { path: 'employee-dashboard', icon: <FaUser />, label: 'Dashboard' },
-      { path: 'employee-tasks', icon: <FaUsers />, label: 'Tasks' },
+      { path: '/tasklist', icon: <FaTasks />, label: 'Tasks' },
+      { path: '/leavelist', icon: <MdOutlinePaid />, label: 'Paid leave' },
+      { path: '/attendance', icon: <FaRegCalendarCheck />, label: 'Attendance' },
     ],
   };
 
