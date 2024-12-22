@@ -17,18 +17,20 @@ const Description = ({ isVisible, onClose, content }) => {
         <form className="space-y-8">
 
           {/* Title */}
-          <div className="flex gap-3 pl-4 pt-2 items-center bg-[#E3EDF9] text-[#4D587F] h-[6vh] rounded-[6px]">
-          
-            <p>Title</p>
-            <p>{title}</p>
+        <div className="flex flex-wrap gap-3 pl-4 pt-2 pb-2 items-center bg-[#E3EDF9] text-[#4D587F] h-auto rounded-[6px]">
+          <p className="font-bold text-sm whitespace-nowrap">Title:</p>
+          <p className="text-sm break-words flex-1">
+            {title}
+          </p>
+        </div>
 
-          </div>
 
-          {/* Discreption */}
-          <div className="flex gap-3 pl-4 pt-2 items-center bg-[#E3EDF9] text-[#4D587F] h-[6vh] rounded-[6px]">
-          
-            <p>Discription</p>
-            <p> {description} </p>
+         {/* Description */}
+          <div className="flex flex-wrap gap-3 pl-4 pt-2 pb-2 items-center bg-[#E3EDF9] text-[#4D587F] h-auto rounded-[6px]">
+            <p className="font-bold text-inter whitespace-nowrap">Description:</p>
+            <p className="text-sm break-words flex-1">
+              {description} 
+            </p>
           </div>
 
          

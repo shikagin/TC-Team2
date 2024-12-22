@@ -43,8 +43,8 @@ function TaskList() {
    
     const tasks =[
   
-        { id: 1, title: 'Task 1', status: 'Not Started', description: 'Task 1 jhjsdhvkhdkjvhdhvkjh vsjhjkhjkhkcjvhjfhuhjhjkhjkdhvjkfhjhvfdescription' },
-        { id: 2, title: 'Task 2', status: 'In Progress', description: 'Task 2 description' },
+        { id: 1, title: 'Task 1', status: 'Not Started', description: 'Task 1 jhjsdhrrrrrrrrrrrrrvkhdkjvhdhvkjh vsjhjkhjkhkcjvhjfhuhjhjkhjkdhvjkfhjhvfdescription' },
+        { id: 2, title: 'Task 2', status: 'In Progress', description: 'Task 2 descriprrrrrrrtion' },
         { id: 3, title: 'Task 3', status: 'Not Started', description: 'Task 3 description' },
   
     ];
@@ -85,29 +85,23 @@ function TaskList() {
         <div className="bg-white rounded-2xl h-full p-10 flex flex-col w-full">
 
           <p className="font-bold text-2xl mb-2 font-roboto ml-4">Tasks List</p>
-          <button className="px-4 py-2 rounded-full mb-2 bg-black text-white flex w-[4vw] ml-auto " onClick={toggleAddTask}  >
-              <BiPlus size={24} className="ml-auto" />
-
-          </button>
-
-          {isAddTaskVisible && (
-
-          <CreateTask
-
-            isVisible={isAddTaskVisible}
-            onClose={() => toggleAddTask(null)} // Close popup
-            
-          />
-          )} 
+           
        
           <div className="overflow-y-auto h-[calc(100%-4rem)]">
             {/* Header Row */}
-            <div className="pb-4 pt-4 flex flex-row justify-between pl-4 rounded-xl border-b-color5 border-b-2 bg-color2">
-              <p className="pr-16 font-inter font-bold border-r-color5 border-r-2">Task</p>
-              <p className="pr-16 font-inter font-bold border-r-color5 border-r-2">Task Description</p>
-              <p className="pr-16 font-inter font-bold border-r-color5 border-r-2">Employee</p>
-              <p className="pr-16 font-inter font-bold border-r-color5 border-r-2">Deadline</p>
-              <p className="pr-16 font-inter font-bold">Task Status</p>
+            <div className="pb-4 pt-4 flex flex-row justify-between items-center pl-4 pr-4 rounded-xl border-b-color5 border-b-2 bg-color2 w-full">
+              <p className="pr-[1.5vw] text-[1.2vw] font-inter font-bold border-r-2 border-r-color5 flex-1 min-w-[10%]">
+                Task
+              </p>
+              <p className="px-[1.5vw] text-[1.2vw] font-inter font-bold border-r-2 border-r-color5 flex-[2] min-w-[20%]">
+                Task Description
+              </p>
+              <p className="px-[1.5vw] text-[1.2vw] font-inter font-bold border-r-2 border-r-color5 flex-1 min-w-[15%]">
+                Deadline
+              </p>
+              <p className="pl-[1.5vw] text-[1.2vw] font-inter font-bold flex-1 min-w-[15%]">
+                Task Status
+              </p>
             </div>
   
             {/* Task Rows */}
@@ -118,60 +112,49 @@ function TaskList() {
 
                 key={task.id}
 
-                className="pb-4 pt-4 flex flex-row justify-between pl-4 rounded-xl bg-white"  >
+                className="pb-4 pt-4 flex flex-row justify-between ml-8 rounded-xl bg-white"  >
+                <div className="flex flex-row items-center justify-between w-full py-2 px-4 bg-white rounded-lg shadow-sm">
 
-                <div className="flex flex-row">
+                    <div className="flex flex-row  flex-1">
+                      <p className="text-[1rem] font-inter font-medium truncate  mr-16">
+                        {task.title}
+                      </p>
+                      <button
+                        className="flex ml-16 items-center justify-center text-gray-700 bg-transparent hover:bg-gray-100 rounded-lg p-2"
+                        onClick={() => toggleDescription(task.title, task.description)}
+                      >
+                        <FiMenu size={24} className="text-black" />
+                      </button>
+                    </div>
 
-                  <p className="mr-16 font-inter font-medium">{task.title} </p>
+                    <p className="text-[1rem] mr-24 text-gray-700 font-medium pr-8 whitespace-nowrap">
+                      Deadline
+                    </p>
 
-                  <button
-                    className="ml-24 flex items-center text-gray-700 bg-transparent hover:bg-gray-100 rounded-lg" onClick={() => toggleDescription(task.title, task.description)}  
-                  >
 
-                    <FiMenu size={24} className="text-black" />
-                  </button>
+                    <select
 
-                 
+                      
+                      value={task.status}
+                      onChange={(e) => handleStatusChange(task.id, e.target.value)}
+                      className="p-2 border border-gray-300 rounded-lg text-[1rem] bg-white shadow-sm"
+                    >
+                      <option value="Not Started">Not Started</option>
+                      <option value="In Progress">In Progress</option>
+                      <option value="Feedback">Feedback</option>
+                      <option value="Finished">Finished</option>
+                    </select>
                 </div>
-  
-                <div className="flex flex-row justify-between items-center">
-                  <button className="ml-16 rounded-xl bg-transparent text-black w-10 h-10 flex items-center justify-center" onClick={toggleAdd}>
-                    <FaUserPlus size={20} />
-                  </button>
+                              
 
-                {isAddVisible && (
+                {isDescriptionVisible && (
 
-                <Add
-
-                  isVisible={isAddVisible}
-                  onClose={() => toggleAdd(null)} // Close popup
-                  
+                <Description
+                  isVisible={isDescriptionVisible}
+                  onClose={() => toggleDescription(null)} // Close popup
+                  content = {descriptionData} 
                 />
                 )} 
-
-                 {isDescriptionVisible && (
-
-                  <Description
-                    isVisible={isDescriptionVisible}
-                    onClose={() => toggleDescription(null)} // Close popup
-                    content = {descriptionData} 
-                  />
-                  )} 
-
-
-                </div>
-  
-                <p className="pr-16">Deadline</p>
-                <select 
-                  value={task.status}
-                  onChange={(e) => handleStatusChange(task.id, e.target.value)}
-                  className="mr-8 p-2 border border-gray-300 rounded-lg"
-                >
-                  <option value="Not Started">Not Started</option>
-                  <option value="In Progress">In Progress</option>
-                  <option value="Feedback">Feedback</option>
-                  <option value="Finished">Finished</option>
-                </select>
 
               </div>
             ))}
